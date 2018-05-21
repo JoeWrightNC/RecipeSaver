@@ -16,10 +16,11 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/recipes", function(req, res) {
+  console.log(req.body.name)
   recipes.insertOne([
-    "name", "url"
+    "recipeName", "recipeUrl"
   ], [
-    req.body.name, req.body.url
+    req.body.recipeName, req.body.recipeUrl
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
@@ -30,7 +31,7 @@ router.put("/api/recipes/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   recipes.updateOne({
-    url: req.body.url
+    tried: true
   }, condition, function(result) {
     if (result.changedRows == 0) {
       return res.status(404).end();
@@ -43,7 +44,7 @@ router.put("/api/recipes/:id", function(req, res) {
 router.delete("/api/recipes/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  cat.deleteOne(condition, function(result) {
+  recipes.deleteOne(condition, function(result) {
     if (result.affectedRows == 0) {
       return res.status(404).end();
     } else {

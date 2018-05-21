@@ -5,7 +5,7 @@
 <ul>
   {{#each recipes}}
     {{#unless tried}}
-      {{> recipes/toTry-block tried=true}}
+      {{> recipes/toTry-block}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -15,7 +15,7 @@
 <ul>
   {{#each recipes}}
     {{#if tried}}
-      {{> recipes/tried-block tried=false}}
+      {{> recipes/saved-block}}
     {{/if}}
   {{/each}}
 </ul>

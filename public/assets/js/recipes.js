@@ -9,7 +9,6 @@ $(function() {
 
     $.ajax("/api/recipes/" + id, {
       type: "PUT",
-      data: newTriedState
     }).then(
       function() {
         console.log("trying new things");
@@ -19,10 +18,11 @@ $(function() {
   });
 
   $(".create-form").on("submit", function(event) {
+    console.log("create clicked")
     event.preventDefault();
     var newRecipe = {
-      name: $("#rn").val().trim(),
-      url: $("#ra").val().trim()
+      recipeName: $("#rn").val().trim(),
+      recipeUrl: $("#ru").val().trim()
     };
     $.ajax("/api/recipes", {
       type: "POST",
@@ -36,6 +36,7 @@ $(function() {
   });
 
   $(".delete-recipe").on("click", function(event) {
+    console.log("delete clicked")
     var id = $(this).data("id");
     $.ajax("/api/recipes/" + id, {
       type: "DELETE"
