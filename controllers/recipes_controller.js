@@ -40,7 +40,7 @@ router.put("/api/recipes/:id", function(req, res) {
   });
 });
 
-router.delete("/api/cats/:id", function(req, res) {
+router.delete("/api/recipes/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   cat.deleteOne(condition, function(result) {
