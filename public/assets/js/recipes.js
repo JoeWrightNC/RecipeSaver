@@ -11,14 +11,12 @@ $(function() {
       type: "PUT",
     }).then(
       function() {
-        console.log("trying new things");
         location.reload();
       }
     );
   });
 
   $(".create-form").on("submit", function(event) {
-    console.log("create clicked")
     event.preventDefault();
     var newRecipe = {
       recipeName: $("#rn").val().trim(),
@@ -29,22 +27,40 @@ $(function() {
       data: newRecipe
     }).then(
       function() {
-        console.log("created new cat");
         location.reload();
       }
     );
   });
 
   $(".delete-recipe").on("click", function(event) {
-    console.log("delete clicked")
     var id = $(this).data("id");
     $.ajax("/api/recipes/" + id, {
       type: "DELETE"
     }).then(
       function() {
-        console.log("deleted recipe with id: ", id);
         location.reload();
       }
     );
   });
+
+  $(".addPageLoad").on("click", function(event) {
+    $("#lander").slideUp(1200);
+    $("#triedPage").slideUp(1200);
+    $("#toTryPage").slideUp(1200)
+    $("#addOne").slideDown(1200);
+  })
+
+  $(".toTryPageLoad").on("click", function(event) {
+    $("#lander").slideUp(1200);
+    $("#triedPage").slideUp(1200);
+    $("#addOne").slideUp(1200);
+    $("#toTryPage").slideDown(1200)
+  })
+
+  $(".triedPageLoad").on("click", function(event) {
+    $("#lander").slideUp(1200);
+    $("#addOne").slideUp(1200);
+    $("#toTryPage").slideUp(1200);
+    $("#triedPage").slideDown(1200);
+  })
 });

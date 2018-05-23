@@ -10,26 +10,22 @@ router.get("/", function(req, res) {
     var hbsObject = {
       recipes: data
     };
-    console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/recipes", function(req, res) {
-  console.log(req.body.name)
   recipes.insertOne([
     "recipeName", "recipeUrl"
   ], [
     req.body.recipeName, req.body.recipeUrl
   ], function(result) {
-    // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
 router.put("/api/recipes/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-  console.log("condition", condition);
   recipes.updateOne({
     tried: true
   }, condition, function(result) {
