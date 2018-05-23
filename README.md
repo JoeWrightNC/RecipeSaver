@@ -29,21 +29,21 @@ This application is hosted on heroku [here](#).
 
 1. Clone project by running the following command in your terminal/bash: 
 
-        `git clone git@github.com:JoeWrightNC/RecipeSaver.git``
+        git clone git@github.com:JoeWrightNC/RecipeSaver.git
 
 2. To install the various dependencies for this project run the following command inside the root directory of the cloned filed in your terminal/bash:
 
-        `cd RecipeSaver
-        npm i`
+        cd RecipeSaver
+        npm i
 
 3. Initialize the MySQL database utilizing the following file from the directory:
 
-        `schema.sql
-        seeds.sql`
+        schema.sql
+        seeds.sql
 
 4. Finally, run the server locally:
 
-        `node server.js`
+        node server.js
 
 
 You may access the local application on port 8080 at the URL: `http://localhost:8080/`.
