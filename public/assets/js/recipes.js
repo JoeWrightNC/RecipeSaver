@@ -18,18 +18,23 @@ $(function() {
 
   $(".create-form").on("submit", function(event) {
     event.preventDefault();
-    var newRecipe = {
-      recipeName: $("#rn").val().trim(),
-      recipeUrl: $("#ru").val().trim()
+    if ($.trim($("#rn").val()) === "" || $.trim($("#ru").val()) === "") {
+      alert('you did not fill out a field');
+      return false;
+    } else {
+      var newRecipe = {
+        recipeName: $("#rn").val().trim(),
+        recipeUrl: $("#ru").val().trim()
+      };
+      $.ajax("/api/recipes", {
+        type: "POST",
+        data: newRecipe
+      }).then(
+        function() {
+          location.reload();
+        }
+      );
     };
-    $.ajax("/api/recipes", {
-      type: "POST",
-      data: newRecipe
-    }).then(
-      function() {
-        location.reload();
-      }
-    );
   });
 
   $(".delete-recipe").on("click", function(event) {
