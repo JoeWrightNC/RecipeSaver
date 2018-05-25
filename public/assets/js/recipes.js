@@ -50,22 +50,22 @@ $(function() {
 
   $(".addPageLoad").on("click", function(event) {
     $("#lander").slideUp(1200);
-    $("#triedPage").slideUp(1200);
-    $("#toTryPage").slideUp(1200)
+    $("#triedPage").slideUp(400);
+    $("#toTryPage").slideUp(400)
     $("#addOne").slideDown(1200);
   })
 
   $(".toTryPageLoad").on("click", function(event) {
-    $("#lander").slideUp(1200);
-    $("#triedPage").slideUp(1200);
-    $("#addOne").slideUp(1200);
-    $("#toTryPage").slideDown(1200)
+    $("#lander").slideUp(400);
+    $("#triedPage").slideUp(400);
+    $("#addOne").slideUp(400);
+    $("#toTryPage").slideDown(400)
   })
 
   $(".triedPageLoad").on("click", function(event) {
-    $("#lander").slideUp(1200);
-    $("#addOne").slideUp(1200);
-    $("#toTryPage").slideUp(1200);
-    $("#triedPage").slideDown(1200);
+    $("#lander").slideUp(400);
+    $("#addOne").slideUp(400);
+    $("#toTryPage").slideUp(400);
+    $("#triedPage").slideDown(400);
   })
 });
